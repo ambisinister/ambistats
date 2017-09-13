@@ -112,9 +112,9 @@ for page in range(0, len(res)):
 	else:
 		print("???")
 
-zzz = raw_input("Press enter to view")
-c.execute('SELECT * FROM matches')
-for row in c: print row
+# zzz = raw_input("Press enter to view")
+# c.execute('SELECT * FROM matches')
+# for row in c: print row
 zzz = raw_input("Press Enter to exit")
 conn.commit()
 conn.close()
