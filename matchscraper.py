@@ -7,6 +7,11 @@ c = conn.cursor()
 # c.execute('DROP TABLE IF EXISTS matches ')
 # c.execute('CREATE TABLE matches (winner TEXT, winscore INT, wchar TEXT, loser TEXT, losescore INT, lchar TEXT, event TEXT)')
 
+# TODO:
+#	Challonge Integration - annoying due to tag mismatches
+#	Maybe figure out a way to get everything from just the brackets page
+#	RR pools lol
+
 res = []
 
 url = raw_input("Input URL: ")
@@ -86,6 +91,8 @@ for page in range(0, len(res)):
 			if (w_char == "https://images.smash.gg/images/character/12/image-f583318c7efb80b6fa7a3f5e45657670.png"): w_char = "Luigi"
 			if (w_char == "https://images.smash.gg/images/character/12/image-f583318c7efb80b6fa7a3f5e45657670.png"): w_char = "G&W"
 			if (w_char == "https://images.smash.gg/images/character/20/image-6232a3460eaf76d10c03f5f5724cee19.png"): w_char = "Pikachu"
+			if (w_char == "https://images.smash.gg/images/character/24/image-3e88f767758033529cf9d23f5100fac8.png"): w_char = "Yoshi"
+			if (w_char == "https://images.smash.gg/images/character/3/image-803995c0e10bc359ea6a7fb7a9f23e78.png"): w_char = "DK"
 
 			if (l_char == "https://images.smash.gg/images/character/6/image-55b92279973dc72a6e2ae99b2e22a21c.png"): l_char = "Fox"
 			if (l_char == "https://images.smash.gg/images/character/23/image-696cf22872b76795f6350dcde8494a70.png"): l_char = "Sheik"
@@ -102,6 +109,8 @@ for page in range(0, len(res)):
 			if (l_char == "https://images.smash.gg/images/character/12/image-f583318c7efb80b6fa7a3f5e45657670.png"): l_char = "Luigi"
 			if (l_char == "https://images.smash.gg/images/character/16/image-612796e66ce5c8dacb6693c240fe7665.png"): l_char = "G&W"
 			if (l_char == "https://images.smash.gg/images/character/20/image-6232a3460eaf76d10c03f5f5724cee19.png"): l_char = "Pikachu"
+			if (l_char == "https://images.smash.gg/images/character/24/image-3e88f767758033529cf9d23f5100fac8.png"): l_char = "Yoshi"
+			if (l_char == "https://images.smash.gg/images/character/3/image-803995c0e10bc359ea6a7fb7a9f23e78.png"): l_char = "DK"
 
 			c.execute('INSERT INTO matches VALUES (?, ?, ?, ?, ?, ?, ?);', (winner, w_score, w_char, loser, l_score, l_char, event))
 			print("{} beats {} {}-{}".format(winner, loser, w_score, l_score))
