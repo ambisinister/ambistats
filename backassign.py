@@ -19,8 +19,6 @@ for row in players:
 		c.execute('UPDATE matches SET wchar = (?) WHERE wchar = "?" AND winner = (?)', (row[1], row[0]))
 		c.execute('UPDATE matches SET lchar = (?) WHERE lchar = "?" AND loser = (?)', (row[1], row[0]))
 
-
-
 # zz = raw_input("Check, cancel out if bad")
 # c.execute('SELECT * FROM matches WHERE wchar != "?" OR lchar != "?"')
 # for row in c: print row
