@@ -22,8 +22,19 @@ def guess(clf):
 			for row in c: checker=row[0]
 
 			if(checker != -1):
-				print("skipping {} because he's already tier {}".format(choice, checker))
 				continue
+
+			#fix this later to be beautiful im drunk ama lol
+			checker = 0
+			c.execute('SELECT * FROM matches JOIN players s1 ON s1.tag=matches.loser WHERE winner=(?) AND s1.tier < 9 AND s1.tier IS NOT -1', (choice, ))
+			for row in c: checker += 1
+
+			if(checker<=5):
+				checker = 0
+				c.execute('SELECT * FROM matches JOIN players s1 ON s1.tag=matches.loser WHERE winner=(?) AND s1.tier <= 1 AND s1.tier IS NOT -1', (choice, ))
+				for row in c: checker += 1
+				if(checker<=3):
+					continue
 
 			# Establish format for features
 			myplayer_features = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
